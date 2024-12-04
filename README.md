@@ -169,6 +169,7 @@ Available targets:
 | <a name="input_engine"></a> [engine](#input\_engine) | The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb` | `string` | `"docdb"` | no |
 | <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | The version number of the database engine to use | `string` | `"3.6.0"` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | ID element. Usually used for region e.g. 'uw2', 'us-west-2', OR role 'prod', 'staging', 'dev', 'UAT' | `string` | `null` | no |
+| <a name="input_global_cluster_identifier"></a> [global\_cluster\_identifier](#input\_global\_cluster\_identifier) | Name of the global cluster identifier. This not generate a global cluster or add a new region. Use this only when the generated cluster by this module was promoted manually as primary cluster in a global cluster. | `string` | `null` | no |
 | <a name="input_external_security_group_id_list"></a> [external\_security\_group\_id\_list](#input\_external\_security\_group\_id\_list) | List of external security group IDs to attach to the Document DB | `list(string)` | `[]` | no |
 | <a name="input_id_length_limit"></a> [id\_length\_limit](#input\_id\_length\_limit) | Limit `id` to this many characters (minimum 6).<br/>Set to `0` for unlimited length.<br/>Set to `null` for keep the existing setting, which defaults to `0`.<br/>Does not affect `id_full`. | `number` | `null` | no |
 | <a name="input_instance_class"></a> [instance\_class](#input\_instance\_class) | The instance class to use. For more details, see https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs | `string` | `"db.r4.large"` | no |
@@ -355,11 +356,65 @@ under the License.
 
 All other trademarks referenced herein are the property of their respective owners.
 
+## About
 
----
-Copyright © 2017-2024 [Cloud Posse, LLC](https://cpco.io/copyright)
+This project is maintained and funded by [Cloud Posse, LLC][website]. Like it? Please let us know by [leaving a testimonial][testimonial]!
+
+[![Cloud Posse][logo]][website]
+
+We're a [DevOps Professional Services][hire] company based in Los Angeles, CA. We ❤️  [Open Source Software][we_love_open_source].
+
+We offer [paid support][commercial_support] on all of our projects.
+
+Check out [our other projects][github], [follow us on twitter][twitter], [apply for a job][jobs], or [hire us][hire] to help with your cloud strategy and implementation.
 
 
-<a href="https://cloudposse.com/readme/footer/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=readme_footer_link"><img alt="README footer" src="https://cloudposse.com/readme/footer/img"/></a>
 
-<img alt="Beacon" width="0" src="https://ga-beacon.cloudposse.com/UA-76589703-4/cloudposse/terraform-aws-documentdb-cluster?pixel&cs=github&cm=readme&an=terraform-aws-documentdb-cluster"/>
+### Contributors
+
+<!-- markdownlint-disable -->
+|  [![Erik Osterman][osterman_avatar]][osterman_homepage]<br/>[Erik Osterman][osterman_homepage] | [![Andriy Knysh][aknysh_avatar]][aknysh_homepage]<br/>[Andriy Knysh][aknysh_homepage] | [![Igor Rodionov][goruha_avatar]][goruha_homepage]<br/>[Igor Rodionov][goruha_homepage] |
+|---|---|---|
+<!-- markdownlint-restore -->
+
+  [osterman_homepage]: https://github.com/osterman
+  [osterman_avatar]: https://img.cloudposse.com/150x150/https://github.com/osterman.png
+  [aknysh_homepage]: https://github.com/aknysh
+  [aknysh_avatar]: https://img.cloudposse.com/150x150/https://github.com/aknysh.png
+  [goruha_homepage]: https://github.com/goruha
+  [goruha_avatar]: https://img.cloudposse.com/150x150/https://github.com/goruha.png
+
+[![README Footer][readme_footer_img]][readme_footer_link]
+[![Beacon][beacon]][website]
+<!-- markdownlint-disable -->
+  [logo]: https://cloudposse.com/logo-300x69.svg
+  [docs]: https://cpco.io/docs?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=docs
+  [website]: https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=website
+  [github]: https://cpco.io/github?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=github
+  [jobs]: https://cpco.io/jobs?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=jobs
+  [hire]: https://cpco.io/hire?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=hire
+  [slack]: https://cpco.io/slack?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=slack
+  [linkedin]: https://cpco.io/linkedin?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=linkedin
+  [twitter]: https://cpco.io/twitter?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=twitter
+  [testimonial]: https://cpco.io/leave-testimonial?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=testimonial
+  [office_hours]: https://cloudposse.com/office-hours?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=office_hours
+  [newsletter]: https://cpco.io/newsletter?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=newsletter
+  [discourse]: https://ask.sweetops.com/?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=discourse
+  [email]: https://cpco.io/email?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=email
+  [commercial_support]: https://cpco.io/commercial-support?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=commercial_support
+  [we_love_open_source]: https://cpco.io/we-love-open-source?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=we_love_open_source
+  [terraform_modules]: https://cpco.io/terraform-modules?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=terraform_modules
+  [readme_header_img]: https://cloudposse.com/readme/header/img
+  [readme_header_link]: https://cloudposse.com/readme/header/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=readme_header_link
+  [readme_footer_img]: https://cloudposse.com/readme/footer/img
+  [readme_footer_link]: https://cloudposse.com/readme/footer/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=readme_footer_link
+  [readme_commercial_support_img]: https://cloudposse.com/readme/commercial-support/img
+  [readme_commercial_support_link]: https://cloudposse.com/readme/commercial-support/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-documentdb-cluster&utm_content=readme_commercial_support_link
+  [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-documentdb-cluster&url=https://github.com/cloudposse/terraform-aws-documentdb-cluster
+  [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-documentdb-cluster&url=https://github.com/cloudposse/terraform-aws-documentdb-cluster
+  [share_reddit]: https://reddit.com/submit/?url=https://github.com/cloudposse/terraform-aws-documentdb-cluster
+  [share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/cloudposse/terraform-aws-documentdb-cluster
+  [share_googleplus]: https://plus.google.com/share?url=https://github.com/cloudposse/terraform-aws-documentdb-cluster
+  [share_email]: mailto:?subject=terraform-aws-documentdb-cluster&body=https://github.com/cloudposse/terraform-aws-documentdb-cluster
+  [beacon]: https://ga-beacon.cloudposse.com/UA-76589703-4/cloudposse/terraform-aws-documentdb-cluster?pixel&cs=github&cm=readme&an=terraform-aws-documentdb-cluster
+<!-- markdownlint-restore -->
