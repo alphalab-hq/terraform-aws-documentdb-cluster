@@ -239,3 +239,9 @@ variable "allow_major_version_upgrade" {
   description = "Specifies whether major version upgrades are allowed. See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#allow_major_version_upgrade"
   default     = false
 }
+
+variable "global_cluster_identifier" {
+  type        = string
+  description = "Name of the global cluster identifier. This not generate a global cluster or add a new region. Use this only when the generated cluster by this module was promoted manually as primary cluster in a global cluster."
+  default     = null
+}
